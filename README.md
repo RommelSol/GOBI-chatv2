@@ -31,4 +31,4 @@ Esto lógicamente debe ser dentro de un venv (virtual enviroment).
 - Esta demo no realiza OCR. Para PDFs escaneados, sube TXT por ahora.
 - Si no hay documentos o KB, GOBI mostrará mensajes genéricos.
 - Aún no cuenta con botones seleccionables en donde se pueda añadir opciones predefinidas de respuestas.
-- Personalmente, como grupo recomendamos ejecutar el proyecto de manera local.
+- **Personalmente, como grupo recomendamos ejecutar el proyecto de manera local.**
