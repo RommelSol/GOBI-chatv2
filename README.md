@@ -1,32 +1,32 @@
 
-# GOBI – Streamlit Demo (ZIP listo para Share)
+# GOBI · Chatbot Documental (Streamlit)
 
-Esta demo permite desplegar un chatbot documental en Streamlit Cloud o Hugging Face Spaces.
-Luego podrás subir manualmente tus **PDFs/TXT** a `data/docs/` y tu **CSV** a `data/knowledge/chatbot_dato1.csv`.
+Demo pública pensada desplegado en **share.streamlit.io**. Interfaz estilo chat, respuestas limitadas a 300 palabras y enlaces a las fuentes cuando existan.
 
-## Ejecutar en local
-```bash
-python -m venv .venv && source .venv/bin/activate  # (Windows: .venv\Scripts\activate)
-pip install -r requirements.txt
-streamlit run streamlit_app.py
-```
-
-## Deploy en Streamlit Cloud
-- Sube este ZIP a un repo público.
-- En share.streamlit.io selecciona el repo y el archivo principal `streamlit_app.py`.
-- (Opcional) Define `PUBLIC_DOC_BASE_URL` en `app/config.py` si subes PDFs al repo para links clicables.
-
-## Estructura
+## 🧭 Estructura
 ```
 streamlit_app.py          # punto de entrada
 app/
-  config.py               # rutas y parámetros
-  document_reader.py      # lectura PDF/TXT segura
-  gobi_core.py            # indexado TF-IDF y respuesta con límite de 300
-  knowledge.py            # CSV de KB (pregunta, respuesta, link)
-  emotion.py              # tono empático básico
+  ├─ config.py            # parámetros (límite de palabras, rutas)
+  └─ retrieval.py         # índice TF-IDF sobre CSV/PDF/TXT
 data/
-  docs/                   # coloca aquí tus PDFs/TXT
-  knowledge/
-    chatbot_dato1.csv     # coloca aquí tu CSV (opcional)
+  ├─ docs/                # PDFs (con texto) o TXT
+  └─ knowledge/           # CSV (chatbot_dato1.csv)
 ```
+
+## 🚀 Ejecución local
+
+```bash
+pip install -r requirements.txt
+streamlit run streamlit_app.py
+```
+Esto lógicamente debe ser dentro de un venv (virtual enviroment).
+
+## 🌐 Despliegue en Streamlit Cloud
+1. Sube este repo a GitHub.
+2. En Streamlit Cloud, elige este repo y **Main file**: `streamlit_app.py`.
+3. (Opcional) Define `PUBLIC_DOC_BASE_URL` dentro de `app/config.py` para que los enlaces a PDFs apunten a tu repo público.
+
+## 📎 Notas
+- Esta demo no realiza OCR. Para PDFs escaneados, sube TXT por ahora.
+- Si no hay documentos o KB, GOBI mostrará mensajes genéricos.
