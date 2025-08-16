@@ -1,6 +1,0 @@
-
-streamlit==1.36.0
-pdfplumber==0.11.4
-pandas==2.2.2
-scikit-learn==1.5.1
-textblob==0.18.0.post0
